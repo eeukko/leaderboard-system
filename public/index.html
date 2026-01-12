@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多榜单排行系统</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="main-header">
+            <h1>多榜单排行系统</h1>
+            <button class="btn-create" id="createBtn">+ 创建榜单</button>
+        </header>
+
+        <!-- 榜单列表 -->
+        <main class="leaderboards-grid" id="leaderboardsGrid">
+            <div class="loading">加载中...</div>
+        </main>
+    </div>
+
+    <!-- 创建榜单弹窗 -->
+    <div class="modal" id="createModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>创建新榜单</h2>
+                <span class="modal-close" id="modalClose">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="lbName">榜单名称:</label>
+                    <input type="text" id="lbName" placeholder="例如: 从夯到拉排行榜">
+                </div>
+
+                <div class="form-group">
+                    <label for="lbDescription">榜单描述:</label>
+                    <textarea id="lbDescription" placeholder="简单描述一下这个榜单..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>等级设置:</label>
+                    <div id="ranksContainer">
+                        <div class="rank-input">
+                            <input type="text" placeholder="等级名称" class="rank-name" value="夯爆了">
+                            <input type="color" class="rank-color" value="#f093fb">
+                            <button type="button" class="btn-remove-rank" disabled>×</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn-add-rank" id="addRankBtn">+ 添加等级</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" id="cancelBtn">取消</button>
+                <button class="btn-submit" id="submitBtn">创建</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/index.js"></script>
+</body>
+</html>

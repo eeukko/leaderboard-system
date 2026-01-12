@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>榜单详情</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="leaderboard-header">
+            <div class="header-left">
+                <button class="btn-back" onclick="goBack()">← 返回</button>
+                <h1 id="lbTitle">加载中...</h1>
+            </div>
+            <div class="header-right">
+                <span class="total-count">总人数: <strong id="totalCount">0</strong></span>
+            </div>
+        </header>
+
+        <!-- 添加成员表单 -->
+        <div class="add-member-section">
+            <h2>添加成员</h2>
+            <form id="addMemberForm" class="member-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="rankSelect">选择等级:</label>
+                        <select id="rankSelect" required>
+                            <option value="">加载中...</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="memberName">成员昵称:</label>
+                        <input type="text" id="memberName" placeholder="输入昵称" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="avatarInput">上传头像:</label>
+                        <input type="file" id="avatarInput" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group avatar-preview-group">
+                        <div class="avatar-preview" id="avatarPreview">
+                            <span class="preview-text">预览</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-add-member">添加</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- 榜单区域（垂直排列） -->
+        <main class="ranks-container" id="ranksContainer">
+            <div class="loading">加载中...</div>
+        </main>
+    </div>
+
+    <script src="/js/leaderboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,608 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* 按钮通用样式 */
+button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    transition: all 0.3s;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* 首页头部 */
+.main-header {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header h1 {
+    font-size: 2.5em;
+    color: #333;
+}
+
+.btn-create {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.btn-create:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* 榜单网格 */
+.leaderboards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.leaderboard-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.leaderboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.leaderboard-card h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.lb-description {
+    color: #666;
+    margin-bottom: 15px;
+    min-height: 40px;
+}
+
+.lb-stats {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+    color: #999;
+    font-size: 0.9em;
+}
+
+.btn-enter {
+    width: 100%;
+    padding: 10px;
+    background: #667eea;
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-enter:hover {
+    background: #5568d3;
+}
+
+.btn-delete-lb {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #ff4757;
+    color: white;
+    font-size: 20px;
+    line-height: 1;
+}
+
+.btn-delete-lb:hover {
+    background: #ff3838;
+}
+
+/* 加载和空状态 */
+.loading, .empty-state, .error-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px 20px;
+    color: white;
+    font-size: 1.2em;
+}
+
+/* 弹窗 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 20px 25px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h2 {
+    font-size: 1.5em;
+}
+
+.modal-close {
+    font-size: 30px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.modal-footer {
+    padding: 20px 25px;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* 表单 */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* 等级输入 */
+.rank-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.rank-name {
+    flex: 1;
+}
+
+.rank-color {
+    width: 60px;
+    height: 40px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-remove-rank {
+    width: 40px;
+    height: 40px;
+    background: #ff4757;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+}
+
+.btn-remove-rank:hover:not(:disabled) {
+    background: #ff3838;
+}
+
+.btn-remove-rank:disabled {
+    background: #ccc;
+}
+
+.btn-add-rank {
+    padding: 8px 15px;
+    background: #48dbfb;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+.btn-add-rank:hover {
+    background: #0abde3;
+}
+
+.btn-cancel {
+    padding: 10px 20px;
+    background: #e0e0e0;
+    color: #666;
+    border-radius: 8px;
+}
+
+.btn-cancel:hover {
+    background: #d0d0d0;
+}
+
+.btn-submit {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 8px;
+}
+
+.btn-submit:hover {
+    background: #5568d3;
+}
+
+/* 榜单详情页头部 */
+.leaderboard-header {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-back {
+    padding: 10px 20px;
+    background: #e0e0e0;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+.btn-back:hover {
+    background: #d0d0d0;
+}
+
+.leaderboard-header h1 {
+    font-size: 2em;
+    color: #333;
+}
+
+.total-count {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.total-count strong {
+    color: #667eea;
+    font-size: 1.3em;
+}
+
+/* 添加成员区域 */
+.add-member-section {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.add-member-section h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    align-items: end;
+}
+
+.avatar-preview-group {
+    display: flex;
+    justify-content: center;
+}
+
+.avatar-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f5f5;
+    overflow: hidden;
+}
+
+.avatar-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-text {
+    color: #999;
+    font-size: 0.9em;
+}
+
+.btn-add-member {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-add-member:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* 等级区域（垂直排列） */
+.ranks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rank-zone {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.rank-header {
+    background: var(--rank-color, #667eea);
+    padding: 20px 25px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rank-header h2 {
+    font-size: 1.8em;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.rank-count {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+/* 成员区域 */
+.members-area {
+    padding: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 20px;
+    min-height: 150px;
+    position: relative;
+}
+
+.members-area.drag-over {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border: 3px dashed #667eea;
+}
+
+.empty-hint {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ccc;
+    font-style: italic;
+}
+
+/* 成员卡片 */
+.member-item {
+    position: relative;
+    text-align: center;
+    cursor: move;
+    transition: transform 0.2s;
+}
+
+.member-item:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.member-item.dragging {
+    opacity: 0.4;
+}
+
+.member-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: 0 auto 10px;
+    background: white;
+}
+
+.member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.member-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9em;
+    word-break: break-word;
+}
+
+.btn-delete-member {
+    position: absolute;
+    top: -5px;
+    right: 5px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #ff4757;
+    color: white;
+    border: 2px solid white;
+    font-size: 16px;
+    line-height: 1;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.member-item:hover .btn-delete-member {
+    opacity: 1;
+}
+
+.btn-delete-member:hover {
+    background: #ff3838;
+}
+
+/* 通知 */
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    opacity: 0;
+    transform: translateX(400px);
+    transition: all 0.3s;
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .main-header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .main-header h1 {
+        font-size: 1.8em;
+    }
+
+    .leaderboard-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-left {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .leaderboard-header h1 {
+        font-size: 1.5em;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .members-area {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 15px;
+    }
+
+    .member-avatar {
+        width: 70px;
+        height: 70px;
+    }
+
+    .rank-header h2 {
+        font-size: 1.4em;
+    }
+}

@@ -1,0 +1,13 @@
+node_modules/
+.env
+npm-debug.log
+.DS_Store
+old_backup/
+server/uploads/*.jpg
+server/uploads/*.png
+server/uploads/*.gif
+server/uploads/*.webp
+*.log
+数据/
+数据.z01
+数据.zip
