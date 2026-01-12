@@ -202,7 +202,7 @@ button:disabled {
 
 /* 表单 */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .form-group label {
@@ -309,10 +309,10 @@ button:disabled {
 /* 榜单详情页头部 */
 .leaderboard-header {
     background: white;
-    padding: 25px 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -321,7 +321,7 @@ button:disabled {
 .header-left {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
 }
 
 .btn-back {
@@ -336,7 +336,7 @@ button:disabled {
 }
 
 .leaderboard-header h1 {
-    font-size: 2em;
+    font-size: 1.5em;
     color: #333;
 }
 
@@ -353,21 +353,22 @@ button:disabled {
 /* 添加成员区域 */
 .add-member-section {
     background: white;
-    padding: 25px;
+    padding: 15px 20px;
     border-radius: 15px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
+    margin-top: 20px;
 }
 
 .add-member-section h2 {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     color: #333;
+    font-size: 1.3em;
 }
 
 .form-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    gap: 12px;
     align-items: end;
 }
 
@@ -416,7 +417,7 @@ button:disabled {
 .ranks-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .rank-zone {
@@ -561,48 +562,127 @@ button:disabled {
 /* 响应式设计 */
 @media (max-width: 768px) {
     body {
-        padding: 10px;
+        padding: 8px;
     }
 
     .main-header {
         flex-direction: column;
-        gap: 15px;
+        gap: 12px;
         text-align: center;
+        padding: 20px;
     }
 
     .main-header h1 {
-        font-size: 1.8em;
+        font-size: 1.6em;
     }
 
     .leaderboard-header {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 12px 15px;
     }
 
     .header-left {
-        flex-direction: column;
+        flex-direction: row;
         width: 100%;
+        gap: 10px;
     }
 
     .leaderboard-header h1 {
-        font-size: 1.5em;
+        font-size: 1.2em;
+    }
+
+    .btn-back {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+
+    .total-count {
+        font-size: 1em;
+        width: 100%;
+        text-align: center;
+    }
+
+    .total-count strong {
+        font-size: 1.1em;
+    }
+
+    .add-member-section {
+        padding: 12px 15px;
+        margin-top: 15px;
+    }
+
+    .add-member-section h2 {
+        margin-bottom: 12px;
+        font-size: 1.1em;
     }
 
     .form-row {
         grid-template-columns: 1fr;
+        gap: 10px;
     }
 
-    .members-area {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-        gap: 15px;
+    .form-group {
+        margin-bottom: 10px;
     }
 
-    .member-avatar {
-        width: 70px;
-        height: 70px;
+    .form-group label {
+        margin-bottom: 5px;
+        font-size: 0.9em;
+    }
+
+    .form-group input[type="text"],
+    .form-group select {
+        padding: 8px 12px;
+        font-size: 0.95em;
+    }
+
+    .avatar-preview {
+        width: 60px;
+        height: 60px;
+    }
+
+    .btn-add-member {
+        padding: 10px 20px;
+        font-size: 0.95em;
+    }
+
+    .ranks-container {
+        gap: 12px;
+    }
+
+    .rank-zone {
+        border-radius: 12px;
+    }
+
+    .rank-header {
+        padding: 15px 18px;
     }
 
     .rank-header h2 {
-        font-size: 1.4em;
+        font-size: 1.3em;
+    }
+
+    .rank-count {
+        padding: 5px 12px;
+        font-size: 0.95em;
+    }
+
+    .members-area {
+        grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+        gap: 12px;
+        padding: 15px;
+        min-height: 120px;
+    }
+
+    .member-avatar {
+        width: 65px;
+        height: 65px;
+        border-width: 3px;
+    }
+
+    .member-name {
+        font-size: 0.85em;
     }
 }
